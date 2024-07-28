@@ -75,7 +75,7 @@ console.log(randomElectronics)
         })
     },[ProductByCatagory])
     
-    const Fashions=["MensFashions","WomensFashions"]
+    const Fashions=["ShirtForMens","TshirtForMens","JeansForMens","ShortsForMens","ShoesForMens"]
     const RandomNum=Math.floor(Math.random()*Fashions.length)
     let randomFashion=Fashions[RandomNum]
     console.log(RandomNum)
@@ -104,7 +104,7 @@ console.log(randomElectronics)
         })
     },[ProductByCatagory])
 
-    const Others=["KitchenAccessories","MensWristWatchs","WomensWristWatchs","Sunglasses","Perfumes","MakeupKit"]
+    const Others=["Sharee","Kurti","JeansForWomens","Top","Lahenga"]
     const RandomNum2=Math.floor(Math.random()*Others.length)
     let randomOthers=Others[RandomNum2]
     console.log(RandomNum2)
@@ -168,17 +168,17 @@ console.log(randomElectronics)
             </Box>
             {/* bgcolor={"#f7f6f6"} */}
             <Box mt={2}>
-                <Cardslider key={1} Itemlist={electronicsdata.length!=0?electronicsdata:latest_smartPhones} Heading={`Latest Selling ${randomElectronics}`} />
+                <Cardslider key={1} Itemlist={electronicsdata.length!=0?electronicsdata:latest_smartPhones} Heading={`Latest Selling Electronics`} />
             </Box>
 
 
            
-            <Cardslider key={2} Itemlist={fashionsdata.length!=0?fashionsdata:latestFashion} Heading={`Latest ${randomFashion}`}/>
+            <Cardslider key={2} Itemlist={fashionsdata.length!=0?fashionsdata:latestFashion} Heading={`Latest Mens Fashion`}/>
 
             
 {/* kitchen appliences */}
             <Box mt={2}>
-                <Cardslider key={3} Itemlist={othersdata.length!=0?othersdata:latestKitchen} Heading={`Latest ${randomOthers}`} />
+                <Cardslider key={3} Itemlist={othersdata.length!=0?othersdata:latestKitchen} Heading={`Latest Womens Fashions`} />
 
             </Box>
 

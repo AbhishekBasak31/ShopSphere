@@ -51,13 +51,13 @@ function CARD(props){
                     alt={props.alter}
                     />
                 <CardContent >
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography  variant="h5" component="div">
                         {props.title}
                     </Typography>
-                    <Typography gutterBottom variant="body" component="div">
+                    <Typography  variant="body" component="div">
                         {props.price}
                     </Typography>
-                    <Typography gutterBottom variant="body" sx={{color:"green"}} >
+                    <Typography  variant="body" sx={{color:"green"}}>
                         {props.discount}
                     </Typography>
                 </CardContent>         
