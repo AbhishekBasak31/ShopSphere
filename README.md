@@ -18,8 +18,9 @@
 - **Database:** MongoDB
 - **Authentication:** JWT, bcrypt
 - **Others:** Cloudinary, axios, multer
+  
 
-## Demonstration 
+## Platform guide 
 
 
 https://github.com/user-attachments/assets/58f2fe24-1cb8-437a-a909-2684955cac98
