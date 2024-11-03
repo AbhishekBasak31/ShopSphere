@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { Box, Button, TextField, Typography,IconButton} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function Login_Signup(props){
     const[isSignin , setSignin]=useState(false);
     const [Input,setInput]=useState({name:"",email:"",address:"",password:"",phone:""})
+   
     function handleClick(){
         setSignin(!isSignin);
+        
     }
+
     function handleSubmit(event){
         event.preventDefault();
         props.SendData(Input,isSignin)
@@ -28,11 +32,12 @@ function Login_Signup(props){
     
 
     return(
-        <Box margin="auto" bgcolor={"white"} boxSizing={"border-box"} display={"flex"} width={"100%"} height={"100vh"}   justifyContent={"center"} alignItems={"center"} mt={5} >
-                <Box   boxSizing={"border-box"} display={"flex"} width={"60%"}  height={"78%"} justifyContent={"center"} alignItems={"center"} boxShadow={"4.5px 4.5px 4.5px #949494"} >
+        
+           
+                <Box   boxSizing={"border-box"} display={"flex"} width={"60%"}  height={"auto"} justifyContent={"center"} alignItems={"center"} boxShadow={"4.5px 4.5px 4.5px #949494"} >
 
             
-                    <Box width={"50%"} height={"100%"} p={0} bgcolor={"Yellow"} display={"flex"} flexDirection={"column"} justifyContent={"flex-end"} alignItems={"center"} gap={24}> 
+                    <Box width={"50%"} height={"auto"} p={0} bgcolor={"Yellow"} display={"flex"} flexDirection={"column"} justifyContent={"flex-end"} alignItems={"center"} gap={28}> 
                         <Box textAlign={"start"} p={3}>
                             < Typography variant="h5">{isSignin?props.Text.signupHeading:props.Text.loginHeading}</Typography> < Typography variant="body">{ isSignin?props.Text.signUpSubtext:props.Text.loginSubtext}</Typography>
                         </Box>
@@ -46,8 +51,10 @@ function Login_Signup(props){
                                     </IconButton>
                             </Box>
                         
-                            <Box margin="auto" mt={3} mb={8} boxSizing={"border-box"} width={"70%"} height={"60vh"} display={"flex"} flexDirection={"column"} gap={3} justifyContent={"center"} alignItems={"center"}>                          
-                                
+                            <Box margin="auto" mt={3} mb={8} boxSizing={"border-box"} width={"70%"} minHeight={"60vh"} height={"auto"} display={"flex"} flexDirection={"column"} gap={3} justifyContent={"center"} alignItems={"center"}>                          
+                            
+                            
+
                             {isSignin&& <TextField  name="name" value={Input.name}  onChange={handleChange} variant="standard"fullWidth placeholder="Enter Name"/>}
                                 <TextField  name="email" value={Input.email} onChange={handleChange} variant="standard"fullWidth placeholder="Enter Email-id"/>
                             {isSignin&& <TextField  name="address" value={Input.address}  onChange={handleChange} variant="standard"fullWidth placeholder="Enter Address"/>}
@@ -64,7 +71,7 @@ function Login_Signup(props){
                     </Box>
         
         
-        </Box>
+      
     )
 }
 export default Login_Signup;

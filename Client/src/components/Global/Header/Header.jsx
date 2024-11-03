@@ -217,7 +217,7 @@ function Header() {
                                 </Link>
                     
                             
-                                <Link to="/cart">
+                                <Link to="/cart/items">
                                             <IconButton>
                                             <ShoppingCartIcon/>
                                         </IconButton>

@@ -17,9 +17,10 @@ function Profile(props){
     const[isNameEditable,setName]=useState(true);
     const [updatedData,setUpdatedData]=useState({});
     function handleLogout(){
-        localStorage.removeItem(`${props.isUser?'userId':'sellerId'}`)
-        localStorage.removeItem(`${props.isUser?'userToken':'sellerToken'}`)
-        navigate(`${props.isUser?'/user':'/seller'}/auth`)
+        localStorage.removeItem(`${props.isUser?'userId':'sellerId'}`);
+        localStorage.removeItem(`${props.isUser?'userToken':'sellerToken'}`);
+        navigate(`${props.isUser?'/user':'/seller'}/auth`);
+        navigate(0);
     }
     const Name=props.isUser?'user_name':'seller_name'
     const Email=props.isUser?'user_email':'seller_email'

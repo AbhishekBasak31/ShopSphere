@@ -11,7 +11,6 @@ import About from './Pages/home/Submodules/About/About.jsx'
 import SellerAuth from './Pages/Auth/SellerAuth/SellerAuth.jsx'
 import UserAuth from './Pages/Auth/UserAuth/UserAuth.jsx';
 import User from './Pages/User/UserMain/UserMain.jsx'
-import UserCart from './Pages/User/Submodules/UserCart/User_cart.jsx'
 import UserDashboard from './Pages/User/Submodules/UserProfile/User_das.jsx'
 import Seller from './Pages/Seller/SellerMain/SellerMain.jsx'
 import SellerDasboard from'./Pages/Seller/Submodules/Sellerprofile/Seller_das.jsx'
@@ -22,6 +21,9 @@ import ProductMain from './Pages/Product/ProductMain/ProductMain.jsx';
 import AddCart from './Pages/Product/Submodules/Purchase/AddCart/AddCart.jsx';
 import Buy from './Pages/Product/Submodules/Purchase/Buy/Buy.jsx';
 import Order from './Pages/User/Submodules/Orders/Order.jsx';
+import UserCart_Main from './Pages/User/Submodules/UserCart/UserCart Main/UserCart_Main.jsx';
+import Buy_Cart_Item from './Pages/User/Submodules/UserCart/Submodules/Buy_Cart_Item/Buy_Cart_Item.jsx';
+import Cart from './Pages/User/Submodules/UserCart/Submodules/Cart/Cart.jsx';
 
 function App() {
  const dispatch = useDispatch();
@@ -57,7 +59,10 @@ function App() {
             {/* User dasboard */}
             <Route path='/' element={<User/>}>
                   <Route path='home' element={<HomeHores/>} />
-                  <Route path='cart' element={<UserCart/>}/>
+                  <Route path='/cart' element={<UserCart_Main/>}>
+                    <Route path='items' element={<Cart/>}/>
+                    <Route path='buyitems' element={<Buy_Cart_Item/>}/>
+                  </Route>
                   <Route path='userprofile' element={<UserDashboard/>}/>
                   <Route path='orders'element={<Order/>}/>
             </Route>

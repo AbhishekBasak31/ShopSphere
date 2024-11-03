@@ -1,21 +1,19 @@
-import {React,useEffect,useState,Fragment, useCallback} from "react";
+import {React,useEffect,useState,Fragment, useCallback, createContext} from "react";
 import { Box, Button, Divider, IconButton, Typography } from '@mui/material';
-import { FetchCartData, PlaceMultipleOrder, Removefromcart } from "../../../../ApiRoutes.js";
+import { FetchCartData, PlaceMultipleOrder, Removefromcart } from "../../../../../../ApiRoutes.js";
 // import QuantityButton from "../../../../components/Global/Quantity_Button/Quantitybtn.jsx";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from "react-router-dom";
 
-function UserCart(){
+function Cart(){
 const [cart, setCart] = useState([]);
 const [quantity, setQuantity] = useState([]);
 const[Prices,setprices]=useState([])
 const [total,setTotal]=useState()
 const [refresh, setRefresh] = useState(false);
 let productlist=[]
-// const RemoveItem =  (id) => {
-//     Removefromcart(id)
-//     .then(res=>console.log(res))
-//     .catch(err=>console.log(err))
-// }
+const navigate=useNavigate();
+
 const RemoveItem = useCallback((id) => {
     Removefromcart(id)
         .then(res => console.log(res))
@@ -99,9 +97,16 @@ const CreateProductlist = () =>{
 }
 const Checkout = () =>{
     const data=CreateProductlist()
-    PlaceMultipleOrder(data)
-    .then(res=>console.log(res))
-    .catch(err=>console.log(err))
+   
+   
+    navigate("/cart/buyitems" ,{ state: { data } });
+      
+    
+
+    
+    // PlaceMultipleOrder(data)
+    // .then(res=>console.log(res))
+    // .catch(err=>console.log(err))
     cart.map(item=>
     {
         RemoveItem(item._id) 
@@ -240,4 +245,4 @@ return (
     </Box>
 );
 }
-export default UserCart;
+export default Cart;

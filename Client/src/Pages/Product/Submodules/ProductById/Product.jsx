@@ -13,7 +13,9 @@ export function handleAddcart(){
     })
     console.log(cart)
 }
-const userId=localStorage.getItem('userId')
+const userId=localStorage.getItem('userId');
+
+
 console.log(typeof(userId))
 function Product_By_Id(){
     const location=useLocation();
@@ -40,8 +42,9 @@ function Product_By_Id(){
 
     console.log(specifiction);
     const handleBuy = () => {
-        if(userId.length!=0){
-        navigate(`/product/${Product.product_catagory}/${Product._id}/buy`)
+        if(userId){
+            navigate(`/product/${Product.product_catagory}/${Product._id}/buy`)
+
         }
         else{
             navigate('/user/auth')
@@ -49,7 +52,7 @@ function Product_By_Id(){
 
     }
     const handleAddcart = () => {
-        if(userId.length!=0){
+        if(userId){
         Addtocart(Product._id)
         .then(res=>console.log(res))
         .catch(err=>console.log(err))}
@@ -66,12 +69,12 @@ function Product_By_Id(){
                     <Box width={"50%"} sx={{ boxShadow: "0.2px 0.2px 1px 1px  #949494" }} padding={3} display={"flex"} flexDirection={"column"} gap={3} alignItems={"center"}>
                         {Product.product_img && <img src={Product.product_img} alt="" width={500} height={500} />}
                         <Box display={"flex"} gap={3} pb={1}>
-                            {
-                                userId&&<Button variant="contained" sx={{ bgcolor: "yellowgreen", boxShadow: "2px 2px 2px #949494", ":hover:": { bgcolor: "yellowgreen" } }} onClick={handleBuy}>Buy Now</Button>
-                            }
-                            {
-                                userId&&<Button variant="contained" sx={{ bgcolor: "orange", boxShadow: "2px 2px 2px #949494", ":hover:": { bgcolor: "orange" } }} onClick={handleAddcart}>Add to Cart</Button>               
-                            }
+                            
+                                <Button variant="contained" sx={{ bgcolor: "yellowgreen", boxShadow: "2px 2px 2px #949494", ":hover:": { bgcolor: "yellowgreen" } }} onClick={handleBuy}>Buy Now</Button>
+                            
+                            
+                                <Button variant="contained" sx={{ bgcolor: "orange", boxShadow: "2px 2px 2px #949494", ":hover:": { bgcolor: "orange" } }} onClick={handleAddcart}>Add to Cart</Button>               
+                            
                             
                         </Box>
                     </Box>

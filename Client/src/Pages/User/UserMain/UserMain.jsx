@@ -19,7 +19,7 @@ function User(){
         <div>
           <Header/>
           {isLogin()?<Outlet/>:<Navigate to={"/user/auth"}/>}
-          <Footer/>
+          
         </div> 
         
         
