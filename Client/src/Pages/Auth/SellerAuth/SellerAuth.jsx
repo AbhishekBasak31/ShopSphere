@@ -52,7 +52,7 @@ function SellerAuth(){
     loginButtontext:"Sign in"
    };
 
-   async function getData(data,isSingUp){
+    function getData(data,isSingUp){
     sendSellerdata(data,isSingUp).then(onReceived).catch(err=>console.log(err));
    }
     return(
