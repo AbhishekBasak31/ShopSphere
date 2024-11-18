@@ -14,12 +14,11 @@ function CARD(props){
     if(Product_id){
         return(
        
-            <Card component={Link} to={`/product/${Product_catagory}/${Product_id}`} key={props.id} sx={{ minWidth:props.card_width , minHeight:props.card_height ,padding:2,textDecoration:'none'}}>
+            <Card component={Link} to={`/product/${Product_catagory}/${Product_id}`} key={props.id} sx={{ minWidth:props.card_width , minHeight:props.card_height ,padding:2,textDecoration:'none',boxShadow:props.isShadowon&&'0px 1px 2px #949494'}}>
                                
                 <CardMedia
                     component="img"
                     height={props.height}
-                    
                     sx={{objectFit:"contain", mt:2,}}
                     image={props.pic}
                     alt={props.alter}
@@ -45,7 +44,6 @@ function CARD(props){
                 <CardMedia
                     component="img"
                     height={props.height}
-                    
                     sx={{objectFit:"contain", mt:2,}}
                     image={props.pic}
                     alt={props.alter}

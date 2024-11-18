@@ -15,7 +15,7 @@ function CardGroup(props){
                     {props.Data.slice(0,5).map((item,index)=>{
                        
                          
-                        return(<CARD catagory={item.Catagories}  height={props.Each_card_height} card_width={props.Each_card_width} id={index} pic={item.Image} title={item.Catagories} alter={item.Alt}/>)
+                        return(<CARD catagory={item.Catagories}  height={props.Each_card_height} card_width={props.Each_card_width} id={index} pic={item.Image} title={item.Catagories} alter={item.Alt} isShadowon={true}/>)
 
                     })}
                 </Box>

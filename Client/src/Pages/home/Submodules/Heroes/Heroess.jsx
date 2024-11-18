@@ -12,6 +12,7 @@ import CardGrid from "../../../../components/resuablecomp/CardGrid.jsx";
 import Cardslider from "../../../../components/resuablecomp/CardSlider.jsx";
 import AddSlider from "../../../../components/resuablecomp/AddSlider.jsx";
 import { GetRandomProducts, ProductByCatagory } from "../../../../ApiRoutes.js";
+import HeroesSkeleton from "../../../../components/Global/Skeleton/Heroes/HeroesSkeleton.jsx";
 
 
 
@@ -20,32 +21,66 @@ function HomeHores(){
     const [electronicsdata,setElectronicsdata]=useState([])
     const [fashionsdata,setFashionsdata]=useState([])
     const [othersdata,setOthersdata]=useState([])
+    const [Loading,setLoading]=useState(true);
 
 
-    useEffect(()=>{
-        GetRandomProducts().then(res=>{
+    // useEffect(()=>{ 
+    //     setTimeout(
+    //         async()=>{
+    //         GetRandomProducts().then(res=>{
 
-            if (res && res.products) {
-                const productsWithDiscounts = res.products.map(item => ({
-                    ...item,
-                    discount: `${Math.floor(Math.random() * 50)}%`
-                }));
-                setRandomproducts(productsWithDiscounts);
+    //             if (res && res.products) {
+    //                 const productsWithDiscounts = res.products.map(item => ({
+    //                     ...item,
+    //                     discount: `${Math.floor(Math.random() * 50)}%`
+    //                 }));
+    //                 setRandomproducts(productsWithDiscounts);
+    
+    //                 console.log(productsWithDiscounts); // Logging the updated products
+                    
+    //             } else {
+    //                 console.error('Invalid API response:', res);
+    //                 setLoading(false); // Set loading to false after data is fetched
+    //             }
+    
+               
+    //         }).catch(err=>{
+    
+    //             console.log(err)
+    //             setLoading(false); // Set loading to false after data is fetched
+    //         })
+    //     },5000)
+        
+    // },[GetRandomProducts])
 
-                console.log(productsWithDiscounts); // Logging the updated products
-                
-            } else {
-                console.error('Invalid API response:', res);
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true); // Set loading state to true at the start
+            try {
+                const res = await GetRandomProducts();
+                if (res && res.products) {
+                    const productsWithDiscounts = res.products.map(item => ({
+                        ...item,
+                        discount: `${Math.floor(Math.random() * 50)}%`
+                    }));
+                    setRandomproducts(productsWithDiscounts);
+                    console.log(productsWithDiscounts); // Log updated products
+                } else {
+                    console.error('Invalid API response:', res);
+                }
+            } catch (err) {
+                console.error('Error fetching products:', err);
+            } finally {
                 setLoading(false); // Set loading to false after data is fetched
             }
-
-           
-        }).catch(err=>{
-
-            console.log(err)
-            setLoading(false); // Set loading to false after data is fetched
-        })
-    },[GetRandomProducts])
+        };
+    
+        const timer = setTimeout(fetchData, 2000); // Delay by 5 seconds
+    
+        // Clean up timeout if the component unmounts
+        return () => clearTimeout(timer);
+    }, []); // Empty dependency array if GetRandomProducts is a stable function
+    
 const electronics=["SmartPhones","Laptop","TV","Speaker","HeadPhone"]
 const randomNum=Math.floor(Math.random()*electronics.length)
 let randomElectronics=electronics[randomNum]
@@ -151,15 +186,20 @@ console.log(randomElectronics)
     return(
         
           <>
+          {
+            Loading?
+         <HeroesSkeleton/>:
+          
         <Box display={"flex"} flexDirection={"column"} margin={"auto"} mt={15} width={"96%"} bgcolor={"white"}  >
+            
             <AddSlider addsList={AddsList}/>
         
             <Box mt={15}>
-                <CardGroup key={1} Heading={"Electronic"} Data={Electronics} Each_card_height={"142"} Each_card_width={"200px"}/>
+                <CardGroup key={1} Heading={"Electronic"} Data={Electronics} Each_card_height={"142px"} Each_card_width={"200px"}/>
             
-                <CardGroup key={2} Heading={"Mens Fashions"} Data={Mensfashions} Each_card_height={"142"} Each_card_width={"200px"}/>
+                <CardGroup key={2} Heading={"Mens Fashions"} Data={Mensfashions} Each_card_height={"142px"} Each_card_width={"200px"}/>
 
-                <CardGroup key={3} Heading={"Womens Fashions"} Data={Womensfashions} Each_card_height={"142"} Each_card_width={"200px"}/>
+                <CardGroup key={3} Heading={"Womens Fashions"} Data={Womensfashions} Each_card_height={"142px"} Each_card_width={"200px"}/>
 
             </Box>
             <Box>
@@ -187,6 +227,9 @@ console.log(randomElectronics)
            
         </Box>
         
+        
+}
+
         </>
         
       

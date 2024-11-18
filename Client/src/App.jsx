@@ -43,7 +43,7 @@ function App() {
 
 
   return (
-    <Box bgcolor={"grey"}>
+    <Box >
         
         <section>
 

@@ -69,7 +69,7 @@ export const Mensfashions=[
 ]
 export const Womensfashions=[
     {
-        Catagories:"Sharee",
+        Catagories:"Saree",
         Image:"https://imgs.search.brave.com/lB8hKfOnOzzdl44zcT8wm81iO48MeQVkFgmzO9SDoxQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/Y2hpcm9zYnlqaWd5/YXNhLmNvbS9jZG4v/c2hvcC9wcm9kdWN0/cy9DaGlyb19zQnlK/aWd5YXNhLVNpbGtT/YXJlZV8yXy1jdXRv/dXQucG5nP3Y9MTY0/ODgyNzE0OSZ3aWR0/aD0xMDAw",
         Alt:"Sharee"
     },

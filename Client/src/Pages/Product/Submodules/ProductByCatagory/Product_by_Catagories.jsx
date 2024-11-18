@@ -2,26 +2,49 @@ import { Box, Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ProductByCatagory } from "../../../../ApiRoutes.js";
+import ProductByCatagorySkeleton from "../../../../components/Global/Skeleton/Product by catagory/ProductByCatagorySkeleton.jsx";
 
 function Product_by_catagory(){
     const naviaget=useNavigate();
     let{catagory}=useParams();
     const[products,setProducts]=useState([]);
+    const[loading,setLoading]=useState(true);
     console.log(catagory)
+
     useEffect(()=>{
-        ProductByCatagory(catagory).then(res=>setProducts(res.result)).catch(err=>console.log(err))
+        const fetchData= async ()=>{
+            try{
+                const Result= await ProductByCatagory(catagory)
+                console.log(Result.result);
+                setProducts(Result.result);
+            }
+            catch(err){
+                console.error(`Api request error :${err}`)
+            }
+            finally{
+                setLoading(false);
+            }
+        }
+        const timmer=setTimeout(fetchData,5000);
+        return ()=> clearTimeout(timmer);
+        // ProductByCatagory(catagory).then(res=>setProducts(res.result)).catch(err=>console.log(err))
     },[])
-    console.log(products)
+    // ProductByCatagory(catagory).then(res=>setProducts(res.result)).catch(err=>console.log(err))
+
+    // console.log(products)
    
 
     return (
         <>
-        <Box margin={"auto"} width={"95%"} height={"auto"} mt={18} bgcolor={"white"} display={"flex"} flexDirection={"column"} gap={3} padding={2} overflow={"hidden"}> 
+        {
+            loading?
+            <ProductByCatagorySkeleton/>:
+            <Box  margin={"auto"} width={"95%"} height={"auto"} mt={18} bgcolor={"white"} display={"flex"} flexDirection={"column"} gap={3} padding={2} overflow={"hidden"}> 
         {products.map((product)=>{
         return<>
         
        
-                <Box display={"flex"} justifyContent={"flex-start"} alignItems={"center"} gap={6} boxShadow={"2px 2px 2px #949494"} minHeight={250} pb={2} sx={{textDecoration:"none"}} component={Link} to={`/product/${product.product_catagory}/${product._id}`}> 
+                <Box key={product._id} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} gap={6} boxShadow={"2px 2px 2px #949494"} minHeight={250} pb={2} sx={{textDecoration:"none"}} component={Link} to={`/product/${product.product_catagory}/${product._id}`}> 
                         <Box>
                             <img src={product.product_img} alt="" width={250} height={250} style={{objectFit:"contain"}}/>
                         </Box>
@@ -37,6 +60,8 @@ function Product_by_catagory(){
                 </Box>
                 </> })}
         </Box>
+        }
+        
      
         </>
     )
