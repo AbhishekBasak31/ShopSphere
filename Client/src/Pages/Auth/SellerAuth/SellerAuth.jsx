@@ -15,6 +15,7 @@ function SellerAuth(){
     const [alertData, setAlertData] = useState(null)
     async function onReceived(data){
         console.log(data);
+        
         if(data!=null||data!=undefined){
             setAlertData({
                 severity: "success",
