@@ -19,7 +19,7 @@ function SellerAuth(){
             setAlertData({
                 severity: "success",
                 message: "Congratulations, you have successfully signed up.",
-                width:'100%'
+                width:'60%'
             });
             if(data.token){
                 console.log(data.token);
@@ -36,7 +36,7 @@ function SellerAuth(){
             setAlertData({
                 severity: "error",
                 message: "Unfortunately, signup failed.",
-                width:'100%'
+                width:'60%'
             })
         }
 
@@ -60,7 +60,7 @@ function SellerAuth(){
     return(
         <Box display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"} py={5} mt={8} gap={3} bgcolor={"white"}>
              {alertData && (
-                                <AlertBox alertData={alertData}/>             
+                                <AlertBox  alertData={alertData}/>             
             )}
              <Login_Signup SVG_image={<BusinessDeal Width={"300"} Height={"300"}/>} Text={Login_SignUp_text} SendData={getData}/>
         </Box>
