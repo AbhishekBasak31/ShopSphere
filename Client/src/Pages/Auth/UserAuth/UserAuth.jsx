@@ -30,6 +30,7 @@ function UserAuth(){
                     localStorage.setItem("userToken",data.token);
                     dispatch(userAction.login());
                     navigate("/");
+                    navigate(0);
                 }
         }
         else{
