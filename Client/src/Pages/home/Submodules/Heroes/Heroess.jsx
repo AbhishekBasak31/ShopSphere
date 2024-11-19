@@ -75,7 +75,7 @@ function HomeHores(){
             }
         };
     
-        const timer = setTimeout(fetchData, 2000); // Delay by 5 seconds
+        const timer = setTimeout(fetchData, 1000); // Delay by 5 seconds
     
         // Clean up timeout if the component unmounts
         return () => clearTimeout(timer);

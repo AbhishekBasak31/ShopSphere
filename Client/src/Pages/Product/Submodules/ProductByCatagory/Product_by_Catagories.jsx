@@ -25,7 +25,7 @@ function Product_by_catagory(){
                 setLoading(false);
             }
         }
-        const timmer=setTimeout(fetchData,5000);
+        const timmer=setTimeout(fetchData,1000);
         return ()=> clearTimeout(timmer);
         // ProductByCatagory(catagory).then(res=>setProducts(res.result)).catch(err=>console.log(err))
     },[])

@@ -2,6 +2,9 @@ import axios from "axios";
 
 // User and Seller
 export const sendUserdata=async(data,isSingUp)=>{
+    if(data){
+        
+    }
     const response=await axios.post(`/Users/${isSingUp?"Signin":"Login"}`,isSingUp?{user_name:data.name,user_email:data.email,user_mobile_no:data.phone,user_password:data.password,user_address:data.address}:{user_email:data.email,user_password:data.password})
     .catch(err=>console.error(err))
     if(response.status!==201&&response.status!==200){

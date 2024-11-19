@@ -19,7 +19,7 @@ function SellerAuth(){
             setAlertData({
                 severity: "success",
                 message: "Congratulations, you have successfully signed up.",
-                width:'60%'
+                width:'100%'
             });
             if(data.token){
                 console.log(data.token);
@@ -36,7 +36,7 @@ function SellerAuth(){
             setAlertData({
                 severity: "error",
                 message: "Unfortunately, signup failed.",
-                width:'60%'
+                width:'100%'
             })
         }
 
