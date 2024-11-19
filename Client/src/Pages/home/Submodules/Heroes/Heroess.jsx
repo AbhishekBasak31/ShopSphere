@@ -24,34 +24,6 @@ function HomeHores(){
     const [Loading,setLoading]=useState(true);
 
 
-    // useEffect(()=>{ 
-    //     setTimeout(
-    //         async()=>{
-    //         GetRandomProducts().then(res=>{
-
-    //             if (res && res.products) {
-    //                 const productsWithDiscounts = res.products.map(item => ({
-    //                     ...item,
-    //                     discount: `${Math.floor(Math.random() * 50)}%`
-    //                 }));
-    //                 setRandomproducts(productsWithDiscounts);
-    
-    //                 console.log(productsWithDiscounts); // Logging the updated products
-                    
-    //             } else {
-    //                 console.error('Invalid API response:', res);
-    //                 setLoading(false); // Set loading to false after data is fetched
-    //             }
-    
-               
-    //         }).catch(err=>{
-    
-    //             console.log(err)
-    //             setLoading(false); // Set loading to false after data is fetched
-    //         })
-    //     },5000)
-        
-    // },[GetRandomProducts])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -75,7 +47,7 @@ function HomeHores(){
             }
         };
     
-        const timer = setTimeout(fetchData, 1000); // Delay by 5 seconds
+        const timer = setTimeout(fetchData, 500); // Delay by 5 seconds
     
         // Clean up timeout if the component unmounts
         return () => clearTimeout(timer);
