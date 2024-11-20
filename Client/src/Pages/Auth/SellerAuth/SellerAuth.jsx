@@ -52,7 +52,7 @@ function SellerAuth(){
     loginSubtext:"and bring your business at online and growth un boundly",
     signUpSubtext:"and start selling your goods , with an effective prices",
     signUpButtontext:"Sign Up",
-    loginButtontext:"Sign in"
+    loginButtontext:"Log in"
    };
 
     function getData(data,isSingUp){

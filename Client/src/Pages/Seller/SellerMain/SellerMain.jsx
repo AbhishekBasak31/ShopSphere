@@ -17,7 +17,7 @@ function Seller(){
         <div>
             <Header/>
             {isSellerLogin()?<Outlet/>:<Navigate to={"/seller/auth"}/>}
-            <Footer/>
+            
         </div>   
     )
 }

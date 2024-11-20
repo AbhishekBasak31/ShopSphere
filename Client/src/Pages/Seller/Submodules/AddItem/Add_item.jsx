@@ -2,10 +2,11 @@ import { Box,Divider, Typography,TextField, Button } from '@mui/material'
 import React, { useCallback, useEffect, useState } from 'react'
 import { addNewProduct,getallSellproductbyId } from '../../../../ApiRoutes.js';
 import Form from '../../../../components/Global/Form/Form.jsx';
+import { useNavigate } from 'react-router-dom';
 function Add_item() {
   const [isOpen,setOpen]=useState(false)
   const[sellProducts,setsellProducts]=useState([])
-
+  const navigate =useNavigate();
  const sendData= useCallback((Formdata,Img_path)=>{
  
     addNewProduct({
@@ -18,7 +19,10 @@ function Add_item() {
     })
     .then(res=>console.log(res))
     .catch(err=>console.log(err))
-
+    
+    
+    navigate("/new");
+    setOpen(false);
 
  },[]) 
 
@@ -26,7 +30,8 @@ function Add_item() {
   setOpen(true)
  }
 const handleClose= () =>{
-  setOpen(false)
+  setOpen(false);
+  navigate(0);
 }
 useEffect(() =>{
   getallSellproductbyId()
@@ -37,7 +42,7 @@ useEffect(() =>{
     
   )
   .catch(err => console.log(err))
-},[getallSellproductbyId,isOpen])
+},[getallSellproductbyId,sendData])
   return (
     
     <Box  display={'block'} width={'95%'} height={'auto'} margin={'auto'}   bgcolor={'white'} p={2}  >
@@ -90,6 +95,7 @@ useEffect(() =>{
                       bgcolor:"orange",
                      fontSize:"0.8rem"
                     }}
+                    
                     >Remove</Button>
                   </Box>
                 </Box>

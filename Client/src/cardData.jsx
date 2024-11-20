@@ -1,4 +1,5 @@
 import {DeliveryTruck,MovieTicket,AirPlane,Travel,Pizza} from "./components/Svg/Svg.jsx"
+import kurti from "../public/images/[removal.ai]_3935d08b-9bd9-4ce4-934c-b165d1d85102-images-2.png"
 export const Electronics=[
     {
         Catagories:"SmartPhones",
@@ -75,7 +76,7 @@ export const Womensfashions=[
     },
     {
         Catagories:"Kurti",
-        Image:"https://imgs.search.brave.com/QwRnh4YUMYF6nJJIABX6UBBWezjLFEKQ96rA6so0GwM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/dmh2LnJzL2Rwbmcv/ZC81NzMtNTczOTIw/Ml9zaW1wbGUtcGxh/em8tYW5kLWt1cnRp/LWhkLXBuZy1kb3du/bG9hZC5wbmc",
+        Image: kurti,
         Alt:"Kurti"
     },
     {
