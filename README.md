@@ -1,6 +1,6 @@
 # ShopSphere
 
-**ShopSphere** is a full-stack e-commerce platform designed to provide a seamless online shopping experience. Built with a modern tech stack, ShopSphere includes a responsive front-end interface, robust back-end services, and secure database management. 
+**ShopSphere** is a full-stack shoping platform designed to provide a seamless online shopping experience. Built with a modern tech stack, ShopSphere includes a responsive front-end interface, robust back-end services, and secure database management. 
 
 ## Features
 
