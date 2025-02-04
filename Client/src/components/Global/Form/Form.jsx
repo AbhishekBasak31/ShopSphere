@@ -66,8 +66,8 @@ export default function Form(props) {
         Product_name:'',
         Product_description:'',
         Product_catagory:'',
-        Product_price:null,
-        Product_quantity:null
+        Product_price:0,
+        Product_quantity:0
         
       })
 
@@ -86,7 +86,7 @@ export default function Form(props) {
         <Button sx={{color:"orange"}} onClick={props.isClose}><CloseIcon/></Button>
         </DialogActions>
 
-        <Box component="form" margin={"auto"}  sx={{
+        <div component="form" margin={"auto"}  sx={{
         '& .MuiTextField-root': { mb: 5, width: '100%',  }, 
       }}>
             <div >
@@ -132,7 +132,7 @@ export default function Form(props) {
 
       <Button  onClick={handleSubmit} fullWidth={true} variant="contained" sx={{bgcolor:"green"}} >Submit</Button>
 
-          </Box>
+          </div>
           </Dialog>
 
   )

@@ -6,7 +6,7 @@ import { BusinessDeal } from "../../../components/Svg/Svg.jsx";
 import Login_Signup from "../../../components/resuablecomp/Login_singup_form.jsx";
 import { sendSellerdata } from "../../../ApiRoutes.js";
 import { useDispatch } from "react-redux";
-import { sellerAction } from "../../../Store/Store.jsx";
+import { sellerAction } from "../../../store/store.jsx";
 import AlertBox from "../../../components/resuablecomp/AlertBox.jsx";
 
 function SellerAuth(){
@@ -59,12 +59,12 @@ function SellerAuth(){
     sendSellerdata(data,isSingUp).then(onReceived).catch(err=>console.log(err));
    }
     return(
-        <Box display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"} py={5} mt={8} gap={3} bgcolor={"white"}>
+        <div display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"} py={5} mt={8} gap={3} bgcolor={"white"}>
              {alertData && (
                                 <AlertBox  alertData={alertData}/>             
             )}
              <Login_Signup SVG_image={<BusinessDeal Width={"300"} Height={"300"}/>} Text={Login_SignUp_text} SendData={getData}/>
-        </Box>
+        </div>
            
           
         

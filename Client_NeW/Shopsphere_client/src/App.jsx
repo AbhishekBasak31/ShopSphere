@@ -1,29 +1,25 @@
-import { useEffect, useState } from 'react'
-import '../public/styles/App.css'
-import {Box} from '@mui/material';
-import {Route,Routes,} from "react-router-dom";
-import {userAction,sellerAction} from './Store/Store.jsx';
+import { useState } from 'react'
 import {useSelector,useDispatch} from "react-redux";
-import HomeMain from './Pages/home/HomeMain/HomeMain.jsx';
-import HomeHores from './Pages/home/Submodules/Heroes/Heroess.jsx';
-import Help from './Pages/home/Submodules/Help/Help.jsx';
-import About from './Pages/home/Submodules/About/About.jsx'
-import SellerAuth from './Pages/Auth/SellerAuth/SellerAuth.jsx'
-import UserAuth from './Pages/Auth/UserAuth/UserAuth.jsx';
-import User from './Pages/User/UserMain/UserMain.jsx'
-import UserDashboard from './Pages/User/Submodules/UserProfile/User_das.jsx'
-import Seller from './Pages/Seller/SellerMain/SellerMain.jsx'
-import SellerDasboard from'./Pages/Seller/Submodules/Sellerprofile/Seller_das.jsx'
-import Add_item from './Pages/Seller/Submodules/AddItem/Add_item.jsx'
-import Product_By_Id from './Pages/Product/Submodules/ProductById/Product.jsx';
-import Product_by_catagory from './Pages/Product/Submodules/ProductByCatagory/Product_by_Catagories.jsx';
-import ProductMain from './Pages/Product/ProductMain/ProductMain.jsx';
-import AddCart from './Pages/Product/Submodules/Purchase/AddCart/AddCart.jsx';
-import Buy from './Pages/Product/Submodules/Purchase/Buy/Buy.jsx';
-import Order from './Pages/User/Submodules/Orders/Order.jsx';
-import UserCart_Main from './Pages/User/Submodules/UserCart/UserCart Main/UserCart_Main.jsx';
-import Buy_Cart_Item from './Pages/User/Submodules/UserCart/Submodules/Buy_Cart_Item/Buy_Cart_Item.jsx';
-import Cart from './Pages/User/Submodules/UserCart/Submodules/Cart/Cart.jsx';
+import HomeMain from './pages/home/HomeMain/HomeMain.jsx';
+import HomeHores from './pages/home/Submodules/Heroes/Heroess.jsx';
+import UserAuth from './pages/Auth/UserAuth/UserAuth.jsx';
+import SellerAuth from './pages/Auth/SellerAuth/SellerAuth.jsx'
+import Help from './pages/home/Submodules/Help/Help.jsx'
+import About from './pages/home/Submodules/About/About.jsx'
+import User from './pages/User/UserMain/UserMain.jsx'
+import UserCart_Main from './pages/User/Submodules/UserCart/UserCart Main/UserCart_Main.jsx'
+import UserDashboard from './pages/User/Submodules/UserProfile/User_das.jsx'
+import Seller from './pages/Seller/SellerMain/SellerMain.jsx'
+import SellerDasboard from './pages/Seller/Submodules/Sellerprofile/Seller_das.jsx'
+import Add_item from './pages/Seller/Submodules/AddItem/Add_item.jsx'
+import Product_By_Id from './pages/Product/Submodules/ProductById/Product.jsx';
+import Product_by_catagory from './pages/Product/Submodules/ProductByCatagory/Product_by_Catagories.jsx';
+import ProductMain from './pages/Product/ProductMain/ProductMain.jsx';
+import AddCart from './pages/Product/Submodules/Purchase/AddCart/AddCart.jsx';
+import Buy from './pages/Product/Submodules/Purchase/Buy/Buy.jsx';
+import Order from './pages/User/Submodules/Orders/Order.jsx';
+import Buy_Cart_Item from './pages/User/Submodules/UserCart/Submodules/Buy_Cart_Item/Buy_Cart_Item.jsx';
+import Cart from './pages/User/Submodules/UserCart/Submodules/Cart/Cart.jsx';
 
 function App() {
  const dispatch = useDispatch();
@@ -41,9 +37,8 @@ function App() {
   }
  },[])
 
-
   return (
-    <Box >
+    <div>
         
         <section>
 
@@ -57,7 +52,7 @@ function App() {
                     
             </Route>
             {/* User dasboard */}
-            <Route path='/' element={<User/>}>
+            {/* <Route path='/' element={<User/>}>
                   <Route path='home' element={<HomeHores/>} />
                   <Route path='/cart' element={<UserCart_Main/>}>
                     <Route path='items' element={<Cart/>}/>
@@ -65,26 +60,26 @@ function App() {
                   </Route>
                   <Route path='userprofile' element={<UserDashboard/>}/>
                   <Route path='orders'element={<Order/>}/>
-            </Route>
+            </Route> */}
             {/* Seller dasboard */}
-            <Route path='/' element={<Seller/>}>
+            {/* <Route path='/' element={<Seller/>}>
               <Route path='new' element={<Add_item/>}/>
               <Route path='sellerprofile' element={<SellerDasboard/>}/>
-            </Route>
+            </Route> */}
             
             {/* Product */}
-            <Route path='/product' element={<ProductMain/>}>
+            {/* <Route path='/product' element={<ProductMain/>}>
                   <Route path=':catagory' element={<Product_by_catagory/>}/>
                   <Route path=':catagory/:productId' element={<Product_By_Id/>}>
                       <Route path='buy' element={<Buy/>}/>
                       
                   </Route>
 
-            </Route>
+            </Route> */}
             </Routes>
         </section>
        
-    </Box>
+    </div>
     
   )
 }

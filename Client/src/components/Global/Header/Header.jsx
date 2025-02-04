@@ -54,7 +54,7 @@ function Header() {
     }
 
     return (
-        <Box>
+        <div>
             <AppBar >
                 <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
                     {/* <IconButton onClick={(e) => { setMenu(true) }}>
@@ -152,56 +152,56 @@ function Header() {
                         </List>
 
                     </Drawer> */}
-                    <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                        <Box>
+                    <div display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                        <div>
                         <img src={logo} alt=""  width={"60px"}/>
-                        </Box>
-                        <Box>
+                        </div>
+                        <div>
                         <Typography variant="h4" sx={{display:""}}>
                         ShopSphere
                     </Typography>
-                        </Box>
-                    </Box>
+                        </div>
+                    </div>
                    
-                    <Box width={"60%"} display={"flex"} justifyContent={"center"} alignItems={"center"} gap={2}>
+                    <div width={"60%"} display={"flex"} justifyContent={"center"} alignItems={"center"} gap={2}>
                         <TextField variant="standard" sx={{ width: "80%" }} value={searchTerm} onChange={handleSearch} />
                         <IconButton onClick={handleClick}>
                             <SearchIcon />
                         </IconButton>
-                    </Box>
+                    </div>
 
 
 
-                    <Box >
+                    <div>
                        
-                        <Box display={"flex"} justifyContent={"space-evenly"} gap={5}>
+                        <div display={"flex"} justifyContent={"space-evenly"} gap={5}>
                             {!isSellerLogin && !isUserLogin && (
                            <>
                            
-                           <Box>
+                           <div>
                                 
                                 <Link to="">
                                             <IconButton>
                                             <HomeIcon />
                                         </IconButton>
                                 </Link>
-                            </Box>
-                            <Box> 
+                            </div>
+                            <div> 
                                
                                 <Link to="/user/auth">
                                             <IconButton>
                                             <AccountCircleIcon />
                                         </IconButton>
                                 </Link>
-                                </Box>
-                            <Box>
+                                </div>
+                            <div>
                           
                                 <Link to="/seller/auth">
                                             <IconButton>
                                             <StorefrontIcon/> 
                                         </IconButton>
                                 </Link>
-                            </Box>
+                            </div>
                             </>
                         )
                         }
@@ -265,13 +265,13 @@ function Header() {
                                 )
                             } 
 
-                        </Box>
-                    </Box>
+                        </div>
+                    </div>
 
 
                 </Toolbar>
             </AppBar>
-        </Box>
+        </div>
     )
 }
 export default Header;

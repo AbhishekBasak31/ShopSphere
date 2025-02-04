@@ -3,7 +3,7 @@ import { ShoppingBags } from "../../../components/Svg/Svg.jsx";
 import Login_Signup from "../../../components/resuablecomp/Login_singup_form.jsx";
 import { sendUserdata } from "../../../ApiRoutes.js";
 import{useDispatch}from'react-redux';
-import { userAction } from "../../../Store/Store.jsx";
+import { userAction } from "../../../store/store.jsx";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import AlertBox from "../../../components/resuablecomp/AlertBox.jsx";
@@ -68,14 +68,14 @@ function UserAuth(){
         
     }
     return(
-        <Box display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"} py={5} mt={8} gap={3} bgcolor={"white"}>
+        <div display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"} py={5} mt={8} gap={3} bgcolor={"white"}>
             {alertData && (
                 <AlertBox  alertData={alertData}/>
             )}
         
             <Login_Signup SVG_image={<ShoppingBags Width={"300"} Height={"300"}/>}  Text={Login_SignUp_text} SendData={getData} alertData={alertData}/>
           
-         </Box>
+         </div>
     )
 }
 export default UserAuth;

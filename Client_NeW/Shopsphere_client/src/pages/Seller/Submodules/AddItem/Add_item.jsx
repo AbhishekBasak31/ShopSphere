@@ -48,23 +48,23 @@ useEffect(() =>{
 },[getallSellproductbyId,handleClose])
   return (
     
-    <Box  display={'block'} width={'95%'} height={'auto'} margin={'auto'}   bgcolor={'white'} p={2}  >
-      <Box p={4} m={2} mt={8} width={'90%'} margin={"auto"} height={'auto'} display={"flex"} flexDirection={"column"} gap={3}  >
-        <Box display={"flex"} justifyContent={"flex-end"} alignItems={"center"}> 
+    <div  display={'block'} width={'95%'} height={'auto'} margin={'auto'}   bgcolor={'white'} p={2}  >
+      <div p={4} m={2} mt={8} width={'90%'} margin={"auto"} height={'auto'} display={"flex"} flexDirection={"column"} gap={3}  >
+        <div display={"flex"} justifyContent={"flex-end"} alignItems={"center"}> 
           <Button variant='contained' sx={{bgcolor:"greenyellow"}} onClick={handleAdd}>
             Add New
           </Button>
-        </Box>
-        <Box display={"flex"} flexDirection={"column"} gap={5} >
+        </div>
+        <div display={"flex"} flexDirection={"column"} gap={5} >
           {
             sellProducts.map((Products,index) => {
               console.log(Object.keys(Products.productDetails.orders).length);
               return(
-                <Box key={index} display={"flex"} justifyContent={"space-evenly"} alignItems={"center"} boxShadow={"4.5px 4.5px 4.5px 4.5px #949494"} px={1} borderRadius={"1.23rem"}>
-                  <Box width={"25%"} display={"flex"} justifyContent={"center"}>
+                <div key={index} display={"flex"} justifyContent={"space-evenly"} alignItems={"center"} boxShadow={"4.5px 4.5px 4.5px 4.5px #949494"} px={1} borderRadius={"1.23rem"}>
+                  <div width={"25%"} display={"flex"} justifyContent={"center"}>
                     <img src={Products.productDetails.product_img} alt="product image" width={250} height={250} />
-                  </Box>
-                  <Box width={"25%"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"} gap={1}>
+                  </div>
+                  <div width={"25%"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"} gap={1}>
                     <Typography variant='h6' display={"block"}>
                       {
                         Products.productDetails.product_name
@@ -77,8 +77,8 @@ useEffect(() =>{
                         
                       }
                     </Typography>
-                  </Box>
-                  <Box width={"25%"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"} gap={1}>
+                  </div>
+                  <div width={"25%"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"} gap={1}>
                         <Typography display={"block"} variant='body'>
                           Quantity: {
                             Products.productDetails.product_quantity
@@ -93,8 +93,8 @@ useEffect(() =>{
                         </Typography>
                         
                      
-                  </Box>
-                  <Box width={"25%"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"} gap={1}>
+                  </div>
+                  <div width={"25%"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"} gap={1}>
                         
                         
                         <Typography display={"block"} variant='body'>
@@ -104,8 +104,8 @@ useEffect(() =>{
 
                           }
                         </Typography>
-                  </Box>
-                  <Box width={"25%"} display={"flex"} justifyContent={"center"}>
+                  </div>
+                  <div width={"25%"} display={"flex"} justifyContent={"center"}>
                     <Button 
                     variant='contained'
                     sx={{
@@ -114,19 +114,19 @@ useEffect(() =>{
                     }}
                     
                     >Remove</Button>
-                  </Box>
-                </Box>
+                  </div>
+                </div>
               )
             })
           
           }
-        </Box>
+        </div>
       
        <Form SendData={sendData} isopen={isOpen} isClose={handleClose}/>
-      </Box>
+      </div>
        
       
-    </Box>
+    </div>
   )
 }
 
